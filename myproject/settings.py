@@ -26,7 +26,7 @@ SECRET_KEY = '(@#p@xgkm*+(8o3c-#yi4q=!r+7hqk6%7$_b&)fo&ocauo8qt&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','https://pea-onboarding.herokuapp.com/']
+ALLOWED_HOSTS = ['*','https://api-onboarding.herokuapp.com/']
 
 
 # Application definition
@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'deq8dnqkul3iqo',
-        'USER': 'u4nlvj1pm1vum1',
-        'PASSWORD': 'p84a9e58d5e34b690b3edc6fdbb8f41fee7372533211f902d128e78c1d3e51e56',
-        'HOST': 'ec2-34-200-171-186.compute-1.amazonaws.com',
+        'NAME': 'd63ee9lv5dkfoj',
+        'USER': 'czyprwdzvgvjjj',
+        'PASSWORD': '8707fe653d8d71f6965de92d275a71833e5450f4ac9fe41963812d1962df972d',
+        'HOST': 'ec2-34-193-112-164.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
