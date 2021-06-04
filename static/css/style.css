@@ -1,0 +1,66 @@
+<<<<<<< HEAD
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,500;1,200;1,500;1,600&display=swap');
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    margin-bottom: 120px;
+  }
+  .footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0.8rem;
+    /* padding: 5px; */
+    /* background-color: #efefef;
+    background-color: #593196; */
+    text-align: center;
+  }
+  
+  .stylefont{
+    font-family: 'Prompt', sans-serif;
+    font-style: normal;
+  }
+  
+  table {
+    counter-reset: tableCount;     
+  }
+  .counterCell:before {              
+    content: counter(tableCount); 
+    counter-increment: tableCount; 
+=======
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,500;1,200;1,500;1,600&display=swap');
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    margin-bottom: 120px;
+  }
+  .footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0.8rem;
+    /* padding: 5px; */
+    /* background-color: #efefef;
+    background-color: #593196; */
+    text-align: center;
+  }
+  
+  .stylefont{
+    font-family: 'Prompt', sans-serif;
+    font-style: normal;
+  }
+  
+  table {
+    counter-reset: tableCount;     
+  }
+  .counterCell:before {              
+    content: counter(tableCount); 
+    counter-increment: tableCount; 
+>>>>>>> 16a01bd241ef2e62339d77c9dfda62684da356eb
+  }

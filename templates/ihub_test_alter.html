@@ -1,0 +1,324 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Onboarding Program</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/static/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/static/assets/vendors/jquery-bar-rating/css-stars.css">
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/static/assets/css/demo_3/style.css">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="/static/assets/images/favicon.png" />
+  </head>
+
+    <body>
+        <div class="container-scroller">
+            
+			{% include "menu.html" %}
+
+
+			<div class="container-fluid page-body-wrapper">
+				<div class="main-panel">
+				  <div class="content-wrapper">
+					<div class="row">
+					  <div class="col-md-12">
+						<div class="col-12 grid-margin stretch-card">
+							<div class="card">
+								<div class="card-body">
+									<h4 class="card-title">ข้อสอบ Post-test</h4>
+									<p class="card-description"> INNOVATION HUB คะแนนเต็ม 100 คะแนน ผ่านทดสอบที่ 70 คะแนน โดยทาง Innovation Hub จะเป็นผู้ตรวจให้คะแนน</p>
+									<p class="card-description text-primary"> <b>กรณีผลสอบรวมน้อยกว่า 70 ผู้สอบจะสอบใหม่เฉพาะข้อที่ได้ต่ำกว่า 8 คะแนน</b></p>
+									
+									<form class="forms-sample" method="POST">
+										{% csrf_token %}
+										<div class="form-group">
+											<div class="row">
+												<div class="col-12"><label for="exampleInputName1">ข้อเสนอแนะจากผู้ตรวจ</label></div>
+											</div>
+											<div class="row">
+												<div class="col-12"><label for="exampleInputName1"><textarea class="form-control" id="feedback" name="feedback" rows="7" readonly>{{ Answer_ihub.feedback }}</textarea></label></div>
+											</div>
+										</div>
+										
+										  <div class="form-group">
+											<div class="row">
+												<div class="col-10"><label for="exampleInputName1">1. จงให้นิยามคำว่า "นวัตกรรม" </label>  <label class="text-primary">(Score: {{ Answer_ihub.no1_Score }}/10 )</label></div>
+												<!-- <div class="col-2"><label for="exampleInputName1">Score:</label></div> -->
+											</div>
+											<div class="row">
+												{% if  Answer_ihub.no1_Score >= 8 %}
+												<div class="col-12"><textarea class="form-control" id="no1" name="no1" rows="5" readonly>{{ Answer_ihub.no1 }}</textarea></div>
+												{% else %}
+												<div class="col-12"><textarea class="form-control" id="no1" name="no1" rows="5" required>{{ Answer_ihub.no1 }}</textarea></div>
+												{% endif %}
+												
+											</div>
+											<!-- <div class="row">
+												<div class="col-1"><label for="exampleInputName1">Score:</label></div>
+												<div class="col-2"><input type="text" class="form-control" id="no1_Score" name="no1_Score" placeholder="10" readonly value="{{ Answer_ihub.no1_Score }}/10"></div>
+											</div> -->
+											
+										  </div>
+										  <div class="form-group">
+											<label for="exampleTextarea2">2. Design Thinking หรือการออกแบบเชิงความคิด มีขั้นตอนอะไรบ้าง และใจความสำคัญของแต่ละขั้นตอนคืออะไร </label>  <label class="text-primary">(Score: {{ Sum_2 }}/10 )</label>
+											<div class="row">
+												<div class="col-2 text-right">
+													<label class="text-center"> ขั้นตอนที่ 1</label>
+												    <label class="text-primary">({{ Answer_ihub.no2_1_Score }}/2)</label>
+												</div>
+												<div class="col-10">
+													{% if  Sum_2 >= 8 %}
+													<textarea class="form-control" id="no2_1_ans" name="no2_1_ans" rows="5" readonly>{{ Answer_ihub.no2_1 }}</textarea>
+													{% else %}
+													<textarea class="form-control" id="no2_1_ans" name="no2_1_ans" rows="5" required>{{ Answer_ihub.no2_1 }}</textarea>
+													{% endif %}
+												</div>
+												<!-- <div class="col-2"><input type="text" class="form-control" id="no2_1_Score" name="no2_1_Score" placeholder="2" readonly value="{{ Answer_ihub.no2_1_Score }}/2"></div> -->
+											</div>
+											</br>
+											<div class="row">
+												<div class="col-2 text-right">
+													<label class="text-center"> ขั้นตอนที่ 2</label>
+													<label class="text-primary">({{ Answer_ihub.no2_2_Score }}/2)</label>
+												</div>
+												<div class="col-10">
+													{% if  Sum_2 >= 8 %}
+													<textarea class="form-control" id="no2_2_ans" name="no2_2_ans" rows="5" readonly>{{ Answer_ihub.no2_2 }}</textarea>
+													{% else %}
+													<textarea class="form-control" id="no2_2_ans" name="no2_2_ans" rows="5" required>{{ Answer_ihub.no2_2 }}</textarea>
+													{% endif %}
+												</div>
+												<!-- <div class="col-2"><input type="text" class="form-control" id="no2_2_Score" name="no2_2_Score" placeholder="2" readonly value="{{ Answer_ihub.no2_2_Score }}/2"></div> -->
+											</div>
+											</br>
+											<div class="row">
+												<div class="col-2 text-right">
+													<label class="text-center"> ขั้นตอนที่ 3</label>
+													<label class="text-primary">({{ Answer_ihub.no2_3_Score }}/2)</label>
+												</div>
+												<div class="col-10">
+													{% if  Sum_2 >= 8 %}
+													<textarea class="form-control" id="no2_3_ans" name="no2_3_ans" rows="5" readonly>{{ Answer_ihub.no2_3 }}</textarea>
+													{% else %}
+													<textarea class="form-control" id="no2_3_ans" name="no2_3_ans" rows="5" required>{{ Answer_ihub.no2_3 }}</textarea>
+													{% endif %}
+												</div>
+												<!-- <div class="col-2"><input type="text" class="form-control" id="no2_3_Score" name="no2_3_Score" placeholder="2" readonly value="{{ Answer_ihub.no2_3_Score }}/2"></div> -->
+											</div>
+											</br>
+											<div class="row">
+												<div class="col-2 text-right">
+													<label class="text-center"> ขั้นตอนที่ 4</label>
+													<label class="text-primary">({{ Answer_ihub.no2_4_Score }}/2)</label>
+												</div>
+												<div class="col-10">
+													{% if  Sum_2 >= 8 %}
+													<textarea class="form-control" id="no2_4_ans" name="no2_4_ans" rows="5" readonly>{{ Answer_ihub.no2_4 }}</textarea>
+													{% else %}
+													<textarea class="form-control" id="no2_4_ans" name="no2_4_ans" rows="5" required>{{ Answer_ihub.no2_4 }}</textarea>
+													{% endif %}
+												</div>
+												<!-- <div class="col-2"><input type="text" class="form-control" id="no2_4_Score" name="no2_4_Score" placeholder="2" readonly value="{{ Answer_ihub.no2_4_Score }}/2"></div> -->
+											</div>
+											</br>
+											<div class="row">
+												<div class="col-2 text-right">
+													<label class="text-center"> ขั้นตอนที่ 5</label>
+													<label class="text-primary">({{ Answer_ihub.no2_5_Score }}/2)</label>
+												</div>
+												<div class="col-10">
+													{% if  Sum_2 >= 8 %}
+													<textarea class="form-control" id="no2_5_ans" name="no2_5_ans" rows="5" readonly>{{ Answer_ihub.no2_5 }}</textarea>
+													{% else %}
+													<textarea class="form-control" id="no2_5_ans" name="no2_5_ans" rows="5" required>{{ Answer_ihub.no2_5 }}</textarea>
+													{% endif %}
+												</div>
+												<!-- <div class="col-2"><input type="text" class="form-control" id="no2_5_Score" name="no2_5_Score" placeholder="2" readonly value="{{ Answer_ihub.no2_5_Score }}/2"></div> -->
+											</div>
+										  </div>
+										  <div class="form-group">
+											<div class="row">
+												<div class="col-12"><label for="exampleTextarea3">3. ถ้าคุณมีโอกาสไป empathize ผู้ว่าการ กฟภ. หัวข้อ "Digital disruption" ท่านจะเตรียมตัวอย่างไร </label><label class="text-primary">(Score: {{ Answer_ihub.no3_Score }}/10 )</label></div>
+											</div>
+											<div class="row">
+												{% if  Answer_ihub.no3_Score >= 8 %}
+												<div class="col-12"><textarea class="form-control" id="no3" name="no3" rows="5" readonly>{{ Answer_ihub.no3 }}</textarea></div>
+												{% else %}
+												<div class="col-12"><textarea class="form-control" id="no3" name="no3" rows="5" required>{{ Answer_ihub.no3 }}</textarea></div>
+												{% endif %}
+												<!-- <div class="col-2"><input type="text" class="form-control" id="no3_Score" name="no3_Score" placeholder="10" readonly value="{{ Answer_ihub.no3_Score }}/10"></div> -->
+											</div>
+										  </div>
+										  <div class="form-group">
+											<div class="row">
+												<div class="col-12"><label for="exampleTextarea4">4. หัวใจสำคัญของการตั้งคำถามสำหรับ define คืออะไร </label>  <label class="text-primary">(Score: {{ Answer_ihub.no4_Score }}/10 )</label></div>
+											</div>
+											<div class="row">
+												{% if  Answer_ihub.no4_Score >= 8 %}
+												<div class="col-12"><textarea class="form-control" id="no4" name="no4" rows="5" readonly>{{ Answer_ihub.no4 }}</textarea></div>
+												{% else %}
+												<div class="col-12"><textarea class="form-control" id="no4" name="no4" rows="5" required>{{ Answer_ihub.no4 }}</textarea></div>
+												{% endif %}
+												<!-- <div class="col-2"><input type="text" class="form-control" id="no4_Score" name="no4_Score" placeholder="10" readonly value="{{ Answer_ihub.no4_Score }}/10"></div> -->
+											</div>
+										  </div>
+										  <div class="form-group">
+											<div class="row">
+												<div class="col-12"><label for="exampleTextarea4">5. การ brainstorming ที่ดีควรมีปัจจัยอะไรบ้าง </label>  <label class="text-primary">(Score: {{ Answer_ihub.no5_Score }}/10 )</label></div>
+											</div>
+											<div class="row">
+												{% if  Answer_ihub.no5_Score >= 8 %}
+												<div class="col-12"><textarea class="form-control" id="no5" name="no5" rows="5" readonly>{{ Answer_ihub.no5 }}</textarea></div>
+												{% else %}
+												<div class="col-12"><textarea class="form-control" id="no5" name="no5" rows="5" required>{{ Answer_ihub.no5 }}</textarea></div>
+												{% endif %}
+												<!-- <div class="col-2"><input type="text" class="form-control" id="no5_Score" name="no5_Score" placeholder="10" readonly value="{{ Answer_ihub.no5_Score }}/10"></div> -->
+											</div>
+											
+										  </div>
+										  <div class="form-group">
+											  <div class="row">
+												<div class="col-12"><label for="exampleTextarea4">6. Fail Fast, Fail Cheap, Fail Forward หมายถึงอะไรในความหมายของการทำ Prototype ภายใต้ Design thinking </label> <label class="text-primary">(Score: {{ Answer_ihub.no6_Score }}/10 )</label> </div>
+											  </div>
+											 <div class="row">
+												{% if  Answer_ihub.no6_Score >= 8 %}
+												<div class="col-12"><textarea class="form-control" id="no6" name="no6" rows="5" readonly>{{ Answer_ihub.no6 }}</textarea></div>
+												{% else %}
+												<div class="col-12"><textarea class="form-control" id="no6" name="no6" rows="5" required>{{ Answer_ihub.no6 }}</textarea></div>
+												{% endif %}
+												<!-- <div class="col-2"><input type="text" class="form-control" id="no6_Score" name="no6_Score" placeholder="10" readonly value="{{ Answer_ihub.no6_Score }}/10"></div> -->
+											</div>
+										  </div>
+										  <div class="form-group">
+											  <div class="row">
+												  <div class="col-12"><label for="exampleTextarea4">7. ในการพัฒนา product หรือ บริการ ทำไมจึงควรทำ usability test ในทุกๆกระบวนการ </label>  <label class="text-primary">(Score: {{ Answer_ihub.no7_Score }}/10 )</label></div>
+											  </div>
+											  <div class="row">
+												{% if  Answer_ihub.no7_Score >= 8 %}
+												<div class="col-12"><textarea class="form-control" id="no7" name="no7" rows="5" readonly>{{ Answer_ihub.no7 }}</textarea></div>
+												{% else %}
+												<div class="col-12"><textarea class="form-control" id="no7" name="no7" rows="5" required>{{ Answer_ihub.no7 }}</textarea></div>
+												{% endif %}
+												<!-- <div class="col-2"><input type="text" class="form-control" id="no7_Score" name="no7_Score" placeholder="10" readonly value="{{ Answer_ihub.no7_Score }}/10"></div> -->
+											  </div>
+											
+										  </div>
+										  <div class="form-group">
+											  <div class="row">
+												  <div class="col-12"><label for="exampleTextarea4">8. การนำแนวคิดการทำงาน agile มาประยุกต์ใช้จะส่งผลให้รูปแบบการทำงานแตกต่างจากกระบวนการทำงานแบบเดิม (water fall process) อย่างไร </label>  <label class="text-primary">(Score: {{ Answer_ihub.no8_Score }}/10 )</label></div>
+											 </div>
+											 <div class="row">
+												{% if  Answer_ihub.no8_Score >= 8 %}
+												 <div class="col-12"><textarea class="form-control" id="no8" name="no8" rows="6" readonly>{{ Answer_ihub.no8 }}</textarea></div>
+												{% else %}
+												<div class="col-12"><textarea class="form-control" id="no8" name="no8" rows="6" required>{{ Answer_ihub.no8 }}</textarea></div>
+												{% endif %}
+												 <!-- <div class="col-2"><input type="text" class="form-control" id="no8_Score" name="no8_Score" placeholder="10" readonly value="{{ Answer_ihub.no8_Score }}/10"></div> -->
+											 </div>
+											
+										  </div>
+										  <div class="form-group">
+											<div class="row">
+												<div class="col-12"><label for="exampleTextarea4">9. Scrum framework คือวิธีการทำงานที่ให้ทีมช่วยกันรุมทำงาน ประกอบไปด้วย 3 ตำแหน่งสำคัญอะไรบ้าง และแต่ละคนมีมีหน้าที่ทำอะไร </label></br><label class="text-primary">(Score: {{ Answer_ihub.no9_Score }}/10 )</label></div>
+											</div>
+											<div class="row">
+												{% if  Answer_ihub.no9_Score >= 8 %}
+												<div class="col-12"><textarea class="form-control" id="no9" name="no9" rows="8" readonly>{{ Answer_ihub.no9 }}</textarea></div>
+												{% else %}
+												<div class="col-12"><textarea class="form-control" id="no9" name="no9" rows="8" required>{{ Answer_ihub.no9 }}</textarea></div>
+												{% endif %}
+												<!-- <div class="col-2"><input type="text" class="form-control" id="no9_Score" name="no9_Score" placeholder="10" readonly value="{{ Answer_ihub.no9_Score }}/10"></div> -->
+											</div>
+											
+										  </div>
+										  <div class="form-group">
+											  <div class="row">
+												  <div class="col-12"><label for="exampleTextarea4">10. ทำเลเงินในการวางตำแหน่งรูปภาพ จะอยู่ที่ใดของทำเลทอง </label> <label class="text-primary">(Score: {{ Answer_ihub.no10_Score }}/10 )</label></div>
+											  </div>
+											  <div class="row">
+												{% if  Answer_ihub.no10_Score >= 8 %}
+												<div class="col-12"><textarea class="form-control" id="no10" name="no10" rows="4" readonly>{{ Answer_ihub.no10 }}</textarea></div>
+												{% else %}
+												<div class="col-12"><textarea class="form-control" id="no10" name="no10" rows="4" required>{{ Answer_ihub.no10 }}</textarea></div>
+												{% endif %}
+												<!-- <div class="col-2"><input type="text" class="form-control" id="no10_Score" name="no10_Score" placeholder="10" readonly value="{{ Answer_ihub.no10_Score }}/10"></div> -->
+											  </div>
+											
+										  </div>
+										  <div class="form-group">
+											<div class="row">
+												<div class="col-12 text-center"><label class="text-primary"><b>คะแนนรวม : {{ Answer_ihub.total }}/100</b></label></div>
+												<!-- <div class="col-"><input type="text" class="form-control" id="total" name="total"  readonly value="{{ Answer_ihub.total }}/100"></div> -->
+											</div>
+											
+										  </div>
+										  <button type="submit" class="btn btn-gradient-primary mr-2" onclick="check()">Submit</button>
+										</form>
+								</div>
+							</div>
+						  </div>
+					  </div>
+					</div>
+				  </div>
+				  <!-- content-wrapper ends -->
+				  <!-- partial:../../partials/_footer.html -->
+				  <footer class="footer">
+					<div class="container">
+					  <div class="d-sm-flex justify-content-center justify-content-sm-between">
+						<span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+						<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">ติดต่อสอบถาม ผบร. โทร 5963, 5861 <i class="mdi mdi-heart text-danger"></i></span>
+					  </div>
+					</div>
+				  </footer>
+				  <!-- partial -->
+				</div>
+				<!-- main-panel ends -->
+			  </div>
+            
+		</div>
+		
+    </body>
+    <!-- plugins:js -->
+    <script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- <script src="/static/assets/vendors/select2/select2.min.js"></script> -->
+    <script src="/static/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/static/assets/js/off-canvas.js"></script>
+    <script src="/static/assets/js/hoverable-collapse.js"></script>
+    <script src="/static/assets/js/misc.js"></script>
+    <script src="/static/assets/js/settings.js"></script>
+	<script src="/static/assets/js/todolist.js"></script>
+	<script src="/static/assets/js/widgets.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/static/assets/js/file-upload.js"></script>
+    <script src="/static/assets/js/typeahead.js"></script>
+    <!-- <script src="/static/assets/js/select2.js"></script> -->
+    <!-- End custom js for this page -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		function check() {
+			
+			var x =confirm("ยืนยันการส่งแบบทดสอบหลังเรียน (Post-Test)");
+				if (x)
+					return true;
+				else
+					return false;
+			
+			
+		};
+	</script>
+    

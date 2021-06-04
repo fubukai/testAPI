@@ -1,0 +1,316 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Onboarding Program</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/static/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/static/assets/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="/static/assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/static/assets/css/demo_3/style.css">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="/static/assets/images/favicon.png" />
+  </head>
+
+    <body>
+        <div class="container-scroller">
+            
+			{% include "menu.html" %}
+
+
+			<div class="container-fluid page-body-wrapper">
+				<div class="main-panel">
+				  <div class="content-wrapper">
+					<div class="row">
+					  <div class="col-md-12">
+						<div class="card">
+						  <div class="card-body">
+							<div class="product-nav-wrapper row">
+							  <div class="col-lg-4 col-md-5">
+								<ul class="nav product-filter-nav">
+								  <li class="active"><a href="#">หลักสูตร Onboarding Program</a></li>
+								  
+								</ul>
+							  </div>
+							</div>
+							<div class="row product-item-wrapper">
+							
+								{% for Course_all in Count_view %}
+								
+									{% if Course_all.Link_course__CourseStatus == 'ON' or Course_all.Link_course__CourseStatus == 'OFF'  %}
+							  <div class="col-lg-4 col-md-6 col-sm-6 col-12 product-item">
+								<div class="card">
+								  <div class="card-body">
+									<div class="action-holder">
+									  <div class="sale-badge bg-gradient-success"><i class="mdi mdi-eye"></i>{{ Course_all.Link_course__id__count }}</div>
+									  <span class="favorite-button"><i class="mdi mdi-heart-outline"></i></span>
+									</div>
+									<div class="product-img-outer">
+									  <img class="product_image" src="/static/assets/images/product_images_2/{{ Course_all.Link_course__Cover_img }}" alt="prduct image">
+									</div>
+									<p class="product-title">{{ Course_all.Link_course__CourseName }}</p>
+									<!-- <p class="product-price"><button type="button" class="btn btn-gradient-info btn-rounded btn-icon"><i class="mdi mdi-check-decagram"></i></button></p> -->
+									<p class="product-price">{{ Course_all.Link_course__CourseBy }}</p>
+									{% for Course_score in Course_score %}
+										{% if Course_score.Link_course.id == Course_all.Link_course__id %}
+											<ul class="product-variation">
+											{% if Course_all.Link_course__id == 18 %}
+												
+											{% elif Course_all.Link_course__id == 9  or Course_all.Link_course__id == 4 %}
+												<li><a href="#">Pre : -</a></li>
+												<li><a href="#">Post : {{ Course_score.Post_Score }}</a></li>
+											{% else %}
+												<li><a href="#">Pre : {{ Course_score.Pre_Score }}</a></li>
+												<li><a href="#">Post : {{ Course_score.Post_Score }}</a></li>
+											{% endif %}
+											
+											</ul>
+										
+										{% endif %}
+									{% endfor %}
+									{% if Course_all.Link_course__CourseStatus == 'ON' %}
+										<p class="text-center product-description"><a class="btn btn-gradient-info" href="{% url 'Course_main' Course_all.Link_course__id %}" >เข้าเรียน</a></p>
+									{% else %}
+										<p class="text-center product-description"><a class="btn btn-gradient-secondary" >ยังไม่เปิด</a></p>
+									{% endif %}
+								  </div>
+								</div>
+							  </div>
+							  {% endif %}
+							  {% endfor %}
+							  <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-12 product-item">
+								<div class="card">
+								  <div class="card-body">
+									<div class="action-holder">
+									  <div class="sale-badge bg-gradient-success">Comming soon</div>
+									  <span class="favorite-button"><i class="mdi mdi-heart-outline"></i></span>
+									</div>
+									<div class="product-img-outer">
+									  <img class="product_image" src="/static/assets/images/product_images_2/thumb_image14.jpg" alt="prduct image">
+									</div>
+									<p class="product-title">กฎหมายสำหรับพนักงานใหม่</p>
+									<p class="product-price">สกม.</p>
+									<ul class="product-variation">
+									  <li><a href="#">Pre : {{ Course_score.Pre_Score2 }}</a></li>
+									  <li><a href="#">Post : {{ Course_score.Post_Score1 }}</a></li>
+									</ul>
+									<p class="text-center product-description"><a class="btn btn-gradient-info" href="{% url 'Course_main' 2 %}" >เข้าเรียน</a></p>
+									
+								  </div>
+								</div>
+							  </div>
+							  <div class="col-lg-4 col-md-6 col-sm-6 col-12 product-item">
+								<div class="card">
+									<div class="card-body">
+									  <div class="action-holder">
+										<div class="sale-badge bg-gradient-success">Comming soon</div>
+										<span class="favorite-button"><i class="mdi mdi-heart-outline"></i></span>
+									  </div>
+									  <div class="product-img-outer">
+										<img class="product_image" src="/static/assets/images/product_images_2/thumb_image14.jpg" alt="prduct image">
+									  </div>
+									  <p class="product-title">เส้นทางความก้าวหน้าในสายงานอาชีพและIDP</p>
+									  <p class="product-price">กพค.</p>
+									  <ul class="product-variation">
+										  <li><a href="#">Pre : {{ Course_score.Pre_Score3 }}</a></li>
+										  <li><a href="#">Post : {{ Course_score.Post_Score3 }}</a></li>
+									  </ul>
+									  <p class="text-center product-description"><a class="btn btn-gradient-info" href="{% url 'Course_main' 3 %}" >เข้าเรียน</a></p>
+									</div>
+								</div>
+							  </div>
+							  <div class="col-lg-4 col-md-6 col-sm-6 col-12 product-item">
+								<div class="card">
+									<div class="card-body">
+									  <div class="action-holder">
+										<div class="sale-badge bg-gradient-success">Comming soon</div>
+										<span class="favorite-button"><i class="mdi mdi-heart-outline"></i></span>
+									  </div>
+									  <div class="product-img-outer">
+										<img class="product_image" src="/static/assets/images/product_images_2/thumb_image14.jpg" alt="prduct image">
+									  </div>
+									  <p class="product-title">ทักษะการคิดเชิงนวัตกรรม   </br> Innovative Thinking</p>
+									  <p class="product-price">วศก.11 สวก.</p>
+									  <ul class="product-variation">
+										  <li><a href="#">Pre : {{ Course_score.Pre_Score4 }}</a></li>
+										  <li><a href="#">Post : {{ Course_score.Post_Score4 }}</a></li>
+									  </ul>
+									  <p class="text-center product-description"><a class="btn btn-gradient-info" href="{% url 'Course_main' 4 %}" >เข้าเรียน</a></p>
+									</div>
+								  </div>
+							  </div> -->
+							  <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-12 product-item">
+								<div class="card">
+								  <div class="card-body">
+									<div class="action-holder">
+									  <div class="sale-badge bg-gradient-success">New</div>
+									  <span class="favorite-button"><i class="mdi mdi-heart-outline"></i></span>
+									</div>
+									<div class="product-img-outer">
+									  <img class="product_image" src="/static/assets/images/product_images_2/thumb_image14.jpg" alt="prduct image">
+									</div>
+									<p class="product-title">การบริหารองค์ความรู้ (KM)</p>
+									<p class="product-price">กพค.</p>
+									<ul class="product-variation">
+										<li><a href="#">Pre : {{ Course_score.Pre_Score5 }}</a></li>
+										<li><a href="#">Post : {{ Course_score.Post_Score5 }}</a></li>
+									</ul>
+									<p class="text-center product-description"><a class="btn btn-gradient-info" href="{% url 'Course_main' 5 %}" >เข้าเรียน</a></p>
+								  </div>
+								</div>
+							  </div>
+							  <div class="col-lg-4 col-md-6 col-sm-6 col-12 product-item">
+								<div class="card">
+								  <div class="card-body">
+									<div class="action-holder">
+									  <div class="sale-badge bg-gradient-success">Comming soon</div>
+									  <span class="favorite-button"><i class="mdi mdi-heart-outline"></i></span>
+									</div>
+									<div class="product-img-outer">
+									  <img class="product_image" src="/static/assets/images/product_images_2/thumb_image14.jpg" alt="prduct image">
+									</div>
+									<p class="product-title">การกำกับดูแลกิจการที่ดีของ กฟภ.</p>
+									<p class="product-price">กกท.</p>
+									<ul class="product-variation">
+										<li><a href="#">Pre : {{ Course_score.Pre_Score6 }}</a></li>
+										<li><a href="#">Post : {{ Course_score.Post_Score6 }}</a></li>
+									</ul>
+									<p class="text-center product-description"><a class="btn btn-gradient-info" href="{% url 'Course_main' 6 %" >เข้าเรียน</a></p>
+								  </div>
+								</div>
+							  </div>
+							  <div class="col-lg-4 col-md-6 col-sm-6 col-12 product-item">
+								<div class="card">
+								  <div class="card-body">
+									<div class="action-holder">
+									  <div class="sale-badge bg-gradient-success">Comming soon</div>
+									  <span class="favorite-button"><i class="mdi mdi-heart-outline"></i></span>
+									</div>
+									<div class="product-img-outer">
+									  <img class="product_image" src="/static/assets/images/product_images_2/thumb_image14.jpg" alt="prduct image">
+									</div>
+									<p class="product-title">TRUSTED</p>
+									<p class="product-price">คณะทำงานฯ</button></p>
+									<ul class="product-variation">
+										<li><a href="#">Pre : {{ Course_score.Pre_Score7 }}</a></li>
+										<li><a href="#">Post : {{ Course_score.Post_Score7 }}</a></li>
+									</ul>
+									<p class="text-center product-description"><a class="btn btn-gradient-info" href="{% url 'Course_main' 7 %}" >เข้าเรียน</a></p>
+								  </div>
+								</div>
+							  </div>
+							  <div class="col-lg-4 col-md-6 col-sm-6 col-12 product-item">
+								<div class="card">
+								  <div class="card-body">
+									<div class="action-holder">
+									  <div class="sale-badge bg-gradient-success">Comming soon</div>
+									  <span class="favorite-button"><i class="mdi mdi-heart-outline"></i></span>
+									</div>
+									<div class="product-img-outer">
+									  <img class="product_image" src="/static/assets/images/product_images_2/thumb_image14.jpg" alt="prduct image">
+									</div>
+									<p class="product-title">มุมมองด้านธุรกิจและ การปรับตัวในอนาคตของ PEA</p>
+									<p class="product-price">กธส.</p>
+									<ul class="product-variation">
+										<li><a href="#">Pre : {{ Course_score.Pre_Score8 }}</a></li>
+										<li><a href="#">Post : {{ Course_score.Post_Score8 }}</a></li>
+									</ul>
+									<p class="text-center product-description"><a class="btn btn-gradient-info" href="{% url 'Course_main' 8 %}" >เข้าเรียน</a></p>
+								  </div>
+								</div>
+							  </div>
+							  <div class="col-lg-4 col-md-6 col-sm-6 col-12 product-item">
+								<div class="card">
+								  <div class="card-body">
+									<div class="action-holder">
+									  <div class="sale-badge bg-gradient-success">Comming soon</div>
+									  <span class="favorite-button"><i class="mdi mdi-heart-outline"></i></span>
+									</div>
+									<div class="product-img-outer">
+									  <img class="product_image" src="/static/assets/images/product_images_2/thumb_image14.jpg" alt="prduct image">
+									</div>
+									<p class="product-title">INNOVATION HUB</p>
+									<p class="product-price">Hub</p>
+									<ul class="product-variation">
+										<li><a href="#">Pre : {{ Course_score.Pre_Score9 }}</a></li>
+										<li><a href="#">Post : {{ Course_score.Post_Score9 }}</a></li>
+									</ul>
+									<p class="text-center product-description"><a class="btn btn-gradient-info" href="{% url 'Course_main' 9 %}" >เข้าเรียน</a></p>
+								  </div>
+								</div>
+							  </div>
+							  <div class="col-lg-4 col-md-6 col-sm-6 col-12 product-item">
+								<div class="card">
+								  <div class="card-body">
+									<div class="action-holder">
+									  <div class="sale-badge bg-gradient-success">Comming soon</div>
+									  <span class="favorite-button"><i class="mdi mdi-heart-outline"></i></span>
+									</div>
+									<div class="product-img-outer">
+									  <img class="product_image" src="/static/assets/images/product_images_2/thumb_image14.jpg" alt="prduct image">
+									</div>
+									<p class="product-title">การปรับแนวคิดและการทำงานร่วมกันคนต่าง GEN</p>
+									<p class="product-price">กงบ.</p>
+									<ul class="product-variation">
+										<li><a href="#">Pre : {{ Course_score.Pre_Score10 }}</a></li>
+										<li><a href="#">Post : {{ Course_score.Post_Score10 }}</a></li>
+									</ul>
+									<p class="text-center product-description"><a class="btn btn-gradient-info" href="{% url 'Course_main' 10 %}" >เข้าเรียน</a></p>
+								  </div>
+								</div>
+							  </div> -->
+							</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				  <!-- content-wrapper ends -->
+				  <!-- partial:../../partials/_footer.html -->
+				  <footer class="footer">
+					<div class="container">
+					  <div class="d-sm-flex justify-content-center justify-content-sm-between">
+						<span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+						<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">ติดต่อสอบถาม ผบร. โทร 5963, 5864 <i class="mdi mdi-heart text-danger"></i></span>
+					  </div>
+					</div>
+				  </footer>
+				  <!-- partial -->
+				</div>
+				<!-- main-panel ends -->
+			  </div>
+            
+		</div>
+		
+    </body>
+    <!-- plugins:js -->
+    <script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/static/assets/vendors/select2/select2.min.js"></script>
+    <script src="/static/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/static/assets/js/off-canvas.js"></script>
+    <script src="/static/assets/js/hoverable-collapse.js"></script>
+    <script src="/static/assets/js/misc.js"></script>
+    <script src="/static/assets/js/settings.js"></script>
+    <script src="/static/assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/static/assets/js/file-upload.js"></script>
+    <script src="/static/assets/js/typeahead.js"></script>
+    <script src="/static/assets/js/select2.js"></script>
+    <!-- End custom js for this page -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    

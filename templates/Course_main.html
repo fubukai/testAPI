@@ -1,0 +1,403 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Onboarding Program</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/static/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/static/assets/vendors/jquery-bar-rating/css-stars.css">
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/static/assets/css/demo_3/style.css">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="/static/assets/images/favicon.png" />
+  </head>
+
+    <body>
+        <div class="container-scroller">
+            
+			{% include "menu.html" %}
+
+
+			<div class="container-fluid page-body-wrapper">
+				<div class="main-panel">
+				  <div class="content-wrapper">
+					<div class="row">
+					  <div class="col-md-12">
+						<div class="col-12 grid-margin">
+							<div class="card">
+							  <div class="card-body">
+								<h4 class="card-title">{{ Course_detail.CourseName }}</h4>
+								<div class="table-responsive">
+								  <table class="table">
+									<!-- <thead>
+									  <tr>
+										<th> # </th>
+										<th> บทเรียน </th>
+										<th> สถานะ </th>
+										<th> เข้าเรียน </th>
+									  </tr>
+									</thead> -->
+									<tbody>
+									  <!-- <tr>
+										<td>1.</td>
+										<td> Pre-Test </td>
+										<td>
+										  <button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
+											<i class="mdi mdi-check-circle "></i>
+										  </button>
+										</td>
+										<td><a href="#" class="btn btn-gradient-secondary">ทดสอบ</a></td>
+									  </tr>
+									  <tr>
+										<td>2.</td>
+										<td> UC Overview </td>
+										<td>
+										  <button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
+											<i class="mdi mdi-check-circle "></i>
+										  </button>
+										</td>
+										<td><a href="{% url 'VDO' 1 %}" class="btn btn-gradient-info">เข้าเรียน</a></td>
+									  </tr>
+									  <tr>
+										<td>3.</td>
+										<td> การใช้งาน eSpace Mobile(Android) </td>
+										<td>
+										  <button type="button" class="btn btn-gradient-secondary btn-rounded btn-icon">
+											<i class="mdi mdi-check-circle "></i>
+										  </button>
+										</td>
+										<td><a href="#" class="btn btn-gradient-info">เข้าเรียน</a></td>
+										
+									  </tr>
+									  <tr>
+										<td>4.</td>
+										<td> การใช้งาน eSpace Desktop </td>
+										<td>
+											<button type="button" class="btn btn-gradient-secondary btn-rounded btn-icon">
+												<i class="mdi mdi-check-circle "></i>
+											</button>
+										</td>
+										<td><a href="#" class="btn btn-gradient-info">เข้าเรียน</a></td>
+										
+									  </tr>
+									  <tr>
+										<td>5.</td>
+										<td> Post-Test </td>
+										<td>
+											<button type="button" class="btn btn-gradient-secondary btn-rounded btn-icon">
+												<i class="mdi mdi-check-circle "></i>
+											</button>
+										</td>
+										<td><a href="#" class="btn btn-gradient-secondary">ทดสอบ</a></td>
+									  </tr> -->
+									  {% if Course_detail.id == 9 or Course_detail.id == 4 %}
+									  <tr>
+										<!-- <td>
+											{% if Course_detail.id != 17 %}
+												{% if pre == 0 %}
+												<button type="button" class="btn btn-gradient-secondary btn-rounded btn-icon">
+												{{ pre }}</i>
+												</button>
+												{% else %}
+												<button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
+												{{ pre }}</i>
+												</button>
+												{% endif %}
+											{% endif %}
+										</td>
+										<td><a href="{% url 'pretest' Course_detail.id %}" >Pre-Test</a></td>
+										<td><a href="{% url 'pretest' Course_detail.id %}" class="btn btn-gradient-info">ทดสอบ</a></td> -->
+									  </tr>
+									  {% elif Course_detail.id == 18 %}
+									  
+									  {% else %}
+									  <tr>
+										<td>
+											{% if Course_detail.id != 17 %}
+												{% if pre == 0 %}
+												<button type="button" class="btn btn-gradient-secondary btn-rounded btn-icon">
+												{{ pre }}</i>
+												</button>
+												{% else %}
+												<button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
+												{{ pre }}</i>
+												</button>
+												{% endif %}
+											{% endif %}
+										</td>
+										<td><a href="{% url 'pretest' Course_detail.id %}" >Pre-Test</a></td>
+										<td><a href="{% url 'pretest' Course_detail.id %}" class="btn btn-gradient-info">ทดสอบ</a></td>
+									  </tr>
+									  {% endif %}
+
+									  {% for x in Sub_course %}
+									  <tr>
+										<td>
+											{% for v in Sub_course_check %}
+												{% if x.id == v.Link_SubCourse.id and v.Status == 'Done' %}
+													<button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
+														<i class="mdi mdi-check-circle "></i>
+													</button>
+												{% else %}
+													<!-- <button type="button" class="btn btn-gradient-secondary btn-rounded btn-icon">
+														<i class="mdi mdi-check-circle "></i>
+													</button> -->
+												
+												{% endif %}
+											{% endfor %}
+										</td>
+										
+										<td><a href="{% url 'VDO' x.id %}" >{{ x.Title }} {{ x.id }}</a></td>
+										
+										<td><a href="{% url 'VDO' x.id %}" class="btn btn-gradient-info">เข้าเรียน</a></td>
+										<!-- <td><a href="{% url 'VDO' 1 %}" class="btn btn-gradient-info">เข้าเรียน</a></td> -->
+									  {% endfor %}
+
+									  <!-- {% for k in Sub_course %}
+									  <tr>
+										{% for u in Sub_course_check %}
+										<td>
+										
+											{{ k.id }}{{ u.Link_SubCourse }}
+											{% if  u.Link_SubCourse  == k.id %}
+												<button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
+													<i class="mdi mdi-check-circle ">{{ u.Status }}</i>
+												</button>
+											{% else %}
+												<button type="button" class="btn btn-gradient-secondary btn-rounded btn-icon">
+													<i class="mdi mdi-check-circle ">{{ u.Status }}</i>
+												</button>
+											{% endif %}
+										
+										</td>
+										{% endfor %}
+									  	<td><a href="{% url 'VDO' k.id %}" >{{ k.Title }} {{ k.id }}</a></td>
+										
+										  <td><a href="{% url 'VDO' k.id %}" class="btn btn-gradient-info">เข้าเรียน</a></td>
+									
+									  </tr>
+									  {% endfor %} -->
+									  
+
+									  <!-- {% for Sub_course in Sub_course %}
+									  <tr>
+										<td>{{ forloop.counter }}</td>
+										<td> {{ Sub_course.Title }}</td>
+										{% for Sub_course_check in Sub_course_check %}
+											{% if Sub_course.id == Sub_course_check.Link_SubCourse.id %}
+												{% if Sub_course_check.Status == 'Done' %}
+													<td>
+														{{ Sub_course_check.Link_SubCourse.id }}
+													<button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
+														<i class="mdi mdi-check-circle "></i>
+													</button>
+													</td>
+												{% elif Sub_course_check.Status == 'on Process' %}
+													<td>
+														{{ Sub_course_check.Link_SubCourse.id }}
+													<button type="button" class="btn btn-gradient-secondary btn-rounded btn-icon">
+														<i class="mdi mdi-check-circle "></i>
+													</button>
+													</td>
+												{% else %}
+													<td>
+														{{ Sub_course_check.Link_SubCourse.id }}
+													<button type="button" class="btn btn-gradient-secondary btn-rounded btn-icon">
+														<i class="mdi mdi-check-circle "></i>
+													</button>
+													</td>
+												{% endif %}
+											{% else %}
+												{% if Sub_course_check.Status != 'Done' or Sub_course_check.Status != 'on Process' %}
+												<td>
+													{{ Sub_course_check.Link_SubCourse.id }}
+												<button type="button" class="btn btn-gradient-secondary btn-rounded btn-icon">
+													<i class="mdi mdi-check-circle "></i>
+												</button>
+												</td>
+												{% endif %}
+											{% endif %}
+										{% endfor %}
+										<td><a href="{% url 'VDO' Sub_course.id %}" class="btn btn-gradient-info">เข้าเรียน</a></td>
+									  </tr>
+									  {% endfor %} -->
+									  <tr>
+											
+											{% if Course_detail.id == 9 %}
+												<td>
+												{% if post == 0 or post < Course_detail.Course_Pass_Score %}
+													<button type="button" class="btn btn-gradient-secondary btn-rounded btn-icon">
+													{{ post }}</i>
+													</button>
+												{% else %}
+												<button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
+													{{ post }}</i>
+												</button>
+												{% endif %}
+												</td>
+
+												{% if B_colour == 'False' %}
+												<td> Post-Test </td>
+												{% elif post <= Course_detail.Course_Pass_Score or B_colour == 'Done' %}
+												<td><a href="{% url 'ihub_test' %}" >Post-Test</a></td>
+												{% endif %}
+
+												{% if B_colour == 'False' %}
+												<td><a href="#" class="btn btn-gradient-secondary">ทดสอบ</a></td>
+												{% elif Hub_status_test == 0 %}
+												<td><a href="{% url 'ihub_test' %}" class="btn btn-gradient-info">ทดสอบ</a></td>
+												{% elif Hub_status_test == 1 or Hub_status_test == '1'%}
+												<td><a href="{% url 'ihub_test' %}" class="btn btn-gradient-info">รอตรวจ</a></td>
+												{% elif Hub_status_test == 3 or Hub_status_test == '3'%}
+												<td><a href="{% url 'ihub_test_alter' %}" class="btn btn-gradient-danger">ทดสอบใหม่</a></td>
+												{% elif Hub_status_test == 2 or Hub_status_test == '2'%}
+												<td><a class="btn btn-gradient-success">ผ่านแล้ว</a></td>
+												{% elif Hub_status_test == 4 or Hub_status_test == '4'%}
+												<td><a href="{% url 'ihub_test_alter' %}" class="btn btn-gradient-info">รอตรวจ</a></td>
+												{% endif %}
+
+											{% elif Course_detail.id == 4 %}
+												<td>
+												{% if post == 0 or post < Course_detail.Course_Pass_Score %}
+													<button type="button" class="btn btn-gradient-secondary btn-rounded btn-icon">
+													{{ post }}</i>
+													</button>
+												{% else %}
+												<button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
+													{{ post }}</i>
+												</button>
+												{% endif %}
+												</td>
+
+												{% if B_colour == 'False' %}
+												<td> Post-Test </td>
+												{% elif post <= Course_detail.Course_Pass_Score or B_colour == 'Done' %}
+												<td><a href="{% url 'BU_test' %}" >Post-Test</a></td>
+												{% endif %}
+
+												{% if B_colour == 'False' %}
+												<td><a href="#" class="btn btn-gradient-secondary">ทดสอบ</a></td>
+												{% elif post == 0 %}
+												<td><a href="{% url 'BU_test' %}" class="btn btn-gradient-info">ทดสอบ</a></td>
+												
+												{% else %}
+												<td><a class="btn btn-gradient-info">ผ่านแล้ว</a></td>
+												{% endif %}
+											{% elif Course_detail.id == 18 %}
+												
+											{% else %}
+											    <td>
+												{% if post == 0 or post < Course_detail.Course_Pass_Score %}
+													<button type="button" class="btn btn-gradient-secondary btn-rounded btn-icon">
+													{{ post }}</i>
+													</button>
+												{% else %}
+												<button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
+													{{ post }}</i>
+												</button>
+												{% endif %}
+												</td>
+												
+												{% if B_colour == 'False' %}
+												<td> Post-Test </td>
+												{% elif post <= Course_detail.Course_Pass_Score or B_colour == 'Done' %}
+												<td><a href="{% url 'posttest' Course_detail.id %}" >Post-Test</a></td>
+												{% endif %}
+												
+												{% if B_colour == 'False' %}
+												<td><a href="#" class="btn btn-gradient-secondary">ทดสอบ</a></td>
+												{% elif post == 0 %}
+												<td><a href="{% url 'posttest' Course_detail.id %}" class="btn btn-gradient-info">ทดสอบ</a></td>
+												{% elif post < Course_detail.Course_Pass_Score %}
+												<td><a href="{% url 'posttest' Course_detail.id %}" class="btn btn-gradient-danger">ทดสอบใหม่</a></td>
+												{% else %}
+												<td><a class="btn btn-gradient-info">ผ่านแล้ว</a></td>
+												{% endif %}
+											{% endif %}
+									  </tr>
+									  <tr>
+										  <td>
+											{% if Evaluate == 0 %}
+												<button type="button" class="btn btn-gradient-secondary btn-rounded btn-icon">
+													<i class="mdi mdi-check-circle "></i>
+												</button>
+											{% else %}
+												<button type="button" class="btn btn-gradient-primary btn-rounded btn-icon">
+													<i class="mdi mdi-check-circle "></i>
+												</button>
+											{% endif %}
+										  </td>
+										  {% if Course_detail.id == 18 %}
+											<td>
+												<a href="{% url 'evaluate_audit' Course_detail.id %}">แบบประเมินการรับรู้และความพึงพอใจ</a>
+											</td>
+											<td><a class="btn btn-gradient-primary" href="{% url 'evaluate_audit' Course_detail.id %}">ประเมินวิทยากร</a></td>
+										  {% else %}
+											<td>
+												<a href="{% url 'evaluate_audit' Course_detail.id %}">แบบประเมินวิทยากร</a>
+											</td>
+											<td><a class="btn btn-gradient-primary" href="{% url 'evaluate' Course_detail.id %}">ประเมินวิทยากร</a></td>
+										
+										  {% endif %}
+										</tr>
+									  <tr>
+										  <td colspan="3" class="text-center"><a href="{% url 'home' %}" class="btn btn-gradient-primary">กลับหน้ารวมหลักสูตร</a></td>
+									  </tr>
+									</tbody>
+								  </table>
+								</div>
+							  </div>
+							</div>
+						  </div>
+					  </div>
+					</div>
+				  </div>
+				  <!-- content-wrapper ends -->
+				  <!-- partial:../../partials/_footer.html -->
+				  <footer class="footer">
+					<div class="container">
+					  <div class="d-sm-flex justify-content-center justify-content-sm-between">
+						<span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+						<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">ติดต่อสอบถาม ผบร. โทร 5963, 5864 <i class="mdi mdi-heart text-danger"></i></span>
+					  </div>
+					</div>
+				  </footer>
+				  <!-- partial -->
+				</div>
+				<!-- main-panel ends -->
+			  </div>
+            
+		</div>
+		
+    </body>
+    <!-- plugins:js -->
+    <script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/static/assets/vendors/select2/select2.min.js"></script>
+    <script src="/static/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/static/assets/js/off-canvas.js"></script>
+    <script src="/static/assets/js/hoverable-collapse.js"></script>
+    <script src="/static/assets/js/misc.js"></script>
+    <script src="/static/assets/js/settings.js"></script>
+	<script src="/static/assets/js/todolist.js"></script>
+	<script src="/static/assets/js/widgets.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/static/assets/js/file-upload.js"></script>
+    <script src="/static/assets/js/typeahead.js"></script>
+    <script src="/static/assets/js/select2.js"></script>
+    <!-- End custom js for this page -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    

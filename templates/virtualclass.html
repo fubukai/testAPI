@@ -1,0 +1,168 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Onboarding Program</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/static/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/static/assets/vendors/jquery-bar-rating/css-stars.css">
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/static/assets/css/demo_3/style.css">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="/static/assets/images/favicon.png" />
+  </head>
+
+    <body>
+        <div class="container-scroller">
+            
+			{% include "menu.html" %}
+
+
+			<div class="container-fluid page-body-wrapper">
+				<div class="main-panel">
+				  <div class="content-wrapper">
+					<div class="row">
+					  <div class="col-md-12">
+						<div class="col-12 grid-margin">
+							<div class="card">
+							  <div class="card-body">
+								<h4 class="card-title">การบรรยายโดยวิทยากรภายนอก ผ่านระบบ Microsoft Team</h4>
+								<input type="hidden" id="Course_total" name="Course_total" value="{{ Course_item.Course_Total_QS }}"/>
+								<div class="table-responsive">
+								  <table class="table">
+									<thead>
+									  <tr>
+										<th></th>
+										<th> วันที่จัด </th>
+										<th> เวลา </th>
+										<th> หัวข้อ </th>
+									  </tr>
+									</thead>
+									<tbody>
+									  <tr>
+										<td rowspan="2"><img src="/static/assets/images/product_images_2/mindset.png"/></td>
+										<td>21 กรกฎาคม 2563</td>
+										<td>09.00 - 10.00 น. </br>11.00 - 12.00 น.</td>
+										<td>Growth Mindset</td>
+									  </tr>
+									  <tr>
+										<td>22 กรกฎาคม 2563</td>
+										<td>09.00 - 10.00 น. </br>11.00 - 12.00 น.</td>
+										<td>Growth Mindset</td>
+									  </tr>
+									  <tr>
+										<td rowspan="2"><img src="/static/assets/images/product_images_2/motivation.png"/></td>
+										<td>29 กรกฎาคม 2563</td>
+										<td>09.00 - 10.00 น. </br>11.00 - 12.00 น.</td>
+										<td>Problem solving and Decision Making </br> (การวิเคราห์แก้ปัญหาและการตัดสินใจ)</td>
+									  </tr>
+									  <tr>
+										<td>30 กรกฎาคม 2563</td>
+										<td>09.00 - 10.00 น. </br>11.00 - 12.00 น.</td>
+										<td>Problem solving and Decision Making </br> (การวิเคราห์แก้ปัญหาและการตัดสินใจ)</td>
+									  </tr>
+									  <tr>
+										<td rowspan="2"><img src="/static/assets/images/product_images_2/psychologist.png"/></td>
+										<td>18 สิงหาคม 2563</td>
+										<td>09.00 - 10.00 น. </br>11.00 - 12.00 น.</td>
+										<td>การพัฒนาทักษะการทำงานอย่างไรให้ Wow & Work</td>
+									  </tr>
+									  <tr>
+										<td>19 สิงหาคม 2563</td>
+										<td>09.00 - 10.00 น. </br>11.00 - 12.00 น.</td>
+										<td>การพัฒนาทักษะการทำงานอย่างไรให้ Wow & Work</td>
+									  </tr>
+									</tbody>
+								  </table>
+								</div>
+							  </div>
+							</div>
+						  </div>
+					  </div>
+					</div>
+				  </div>
+				  <!-- content-wrapper ends -->
+				  <!-- partial:../../partials/_footer.html -->
+				  <footer class="footer">
+					<div class="container">
+					  <div class="d-sm-flex justify-content-center justify-content-sm-between">
+						<span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+						<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">ติดต่อสอบถาม ผบร. โทร 5864, 5963 <i class="mdi mdi-heart text-danger"></i></span>
+					  </div>
+					</div>
+				  </footer>
+				  <!-- partial -->
+				</div>
+				<!-- main-panel ends -->
+			  </div>
+            
+		</div>
+		
+    </body>
+    <!-- plugins:js -->
+    <script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/static/assets/vendors/select2/select2.min.js"></script>
+    <script src="/static/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/static/assets/js/off-canvas.js"></script>
+    <script src="/static/assets/js/hoverable-collapse.js"></script>
+    <script src="/static/assets/js/misc.js"></script>
+    <script src="/static/assets/js/settings.js"></script>
+	<script src="/static/assets/js/todolist.js"></script>
+	<script src="/static/assets/js/widgets.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/static/assets/js/file-upload.js"></script>
+    <script src="/static/assets/js/typeahead.js"></script>
+    <script src="/static/assets/js/select2.js"></script>
+    <!-- End custom js for this page -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(function() {
+			var total = document.getElementById('Course_total').value;
+			console.log(total);
+
+			$("#submit").click(function() {  
+			for (i = 1; i <= total; i++) {
+					if($('input[type=radio][name=optradio'+i+']:checked').length == 0)
+					{
+						alert("ใจเย็นๆ ข้อ "+i+" ยังไม่ได้ตอบนะ");
+						document.getElementById("radio"+i+"_1").focus();
+						return false;
+						
+					}else{
+						var choose = document.querySelector('input[name = optradio'+i+']:checked').value;
+						console.log(choose);
+						if( choose == document.getElementById("ans"+i).value){
+							
+							document.getElementById("ch"+i).value = 1;
+						}else{
+							document.getElementById("ch"+i).value = 0;
+						}
+							
+					}
+			}
+
+			var x =confirm("ยืนยันการส่งแบบทดสอบก่อนเรียน (Pre-Test)");
+				if (x)
+					return true;
+				else
+					return false;
+			
+			
+			});
+		});
+	</script>
+    

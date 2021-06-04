@@ -1,0 +1,186 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Onboarding Program</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/static/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/static/assets/vendors/jquery-bar-rating/css-stars.css">
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/static/assets/css/demo_3/style.css">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="/static/assets/images/favicon.png" />
+  </head>
+
+    <body>
+        <div class="container-scroller">
+            
+			{% include "menu.html" %}
+
+
+			<div class="container-fluid page-body-wrapper">
+				<div class="main-panel">
+				  <div class="content-wrapper">
+					<div class="row">
+					  <div class="col-md-12">
+						<div class="col-12 grid-margin stretch-card">
+							<div class="card">
+								<div class="card-body">
+									<h4 class="card-title">ข้อสอบ Post-test</h4>
+									<p class="card-description"> ทักษะการคิดเชิงนวัตกรรม </p>
+									<form class="forms-sample" method="POST">
+									{% csrf_token %}
+									<!-- <h4 class="card-title">ข้อเสนอแนะ หรือ แจ้งปัญหาการใช้งาน</h4> -->
+									  <div class="form-group">
+										<label for="exampleInputName1">หลังจากคุณได้ชมวีดีโอเรื่อง “การสร้างนวัตกรรมในองค์กร” เรียบร้อยแล้วคุณมีความเห็นอย่างไร ? (ตอบจากความรู้สึกของตัวเอง) </label>
+										<textarea class="form-control" id="no1" name="no1" rows="20" required></textarea>
+										<!-- <input type="text" class="form-control" id="title" name="title" placeholder="หัวข้อ"> -->
+									  </div>
+									  <!-- <div class="form-group">
+										<label for="exampleTextarea2">2. Design Thinking หรือการออกแบบเชิงความคิด มีขั้นตอนอะไรบ้าง และใจความสำคัญของแต่ละขั้นตอนคืออะไร</label>
+										<div class="row">
+											<div class="col-3 text-right">
+												<label class="text-center"> ขั้นตอนที่ 1</label>
+											</div>
+											<div class="col-9">
+												<textarea class="form-control" id="no2_1_ans" name="no2_1_ans" rows="5" required></textarea>
+											</div>
+										</div>
+										</br>
+										<div class="row">
+											<div class="col-3 text-right">
+												<label class="text-center"> ขั้นตอนที่ 2</label>
+											</div>
+											<div class="col-9">
+												<textarea class="form-control" id="no2_2_ans" name="no2_2_ans" rows="5" required></textarea>
+											</div>
+										</div>
+										</br>
+										<div class="row">
+											<div class="col-3 text-right">
+												<label class="text-center"> ขั้นตอนที่ 3</label>
+											</div>
+											<div class="col-9">
+												<textarea class="form-control" id="no2_3_ans" name="no2_3_ans" rows="5" required></textarea>
+											</div>
+										</div>
+										</br>
+										<div class="row">
+											<div class="col-3 text-right">
+												<label class="text-center"> ขั้นตอนที่ 4</label>
+											</div>
+											<div class="col-9">
+												<textarea class="form-control" id="no2_4_ans" name="no2_4_ans" rows="5" required></textarea>
+											</div>
+										</div>
+										</br>
+										<div class="row">
+											<div class="col-3 text-right">
+												<label class="text-center"> ขั้นตอนที่ 5</label>
+											</div>
+											<div class="col-9">
+												<textarea class="form-control" id="no2_5_ans" name="no2_5_ans" rows="5" required></textarea>
+											</div>
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label for="exampleTextarea3">3. ถ้าคุณมีโอกาสไป empathize ผู้ว่าการ กฟภ. หัวข้อ "Digital disruption" ท่านจะเตรียมตัวอย่างไร</label>
+										<textarea class="form-control" id="no3" name="no3" rows="5" required></textarea>
+									  </div>
+									  <div class="form-group">
+										<label for="exampleTextarea4">4. หัวใจสำคัญของการตั้งคำถามสำหรับ define คืออะไร</label>
+										<textarea class="form-control" id="no4" name="no4" rows="5" required></textarea>
+									  </div>
+									  <div class="form-group">
+										<label for="exampleTextarea4">5. การ brainstorming ที่ดีควรมีปัจจัยอะไรบ้าง</label>
+										<textarea class="form-control" id="no5" name="no5" rows="5" required></textarea>
+									  </div>
+									  <div class="form-group">
+										<label for="exampleTextarea4">6. Fail Fast, Fail Cheap, Fail Forward หมายถึงอะไรในความหมายของการทำ Prototype ภายใต้ Design thinking</label>
+										<textarea class="form-control" id="no6" name="no6" rows="5" required></textarea>
+									  </div>
+									  <div class="form-group">
+										<label for="exampleTextarea4">7. ในการพัฒนา product หรือ บริการ ทำไมจึงควรทำ usability test ในทุกๆกระบวนการ</label>
+										<textarea class="form-control" id="no7" name="no7" rows="5" required></textarea>
+									  </div>
+									  <div class="form-group">
+										<label for="exampleTextarea4">8. การนำแนวคิดการทำงาน agile มาประยุกต์ใช้จะส่งผลให้รูปแบบการทำงานแตกต่างจากกระบวนการทำงานแบบเดิม (water fall process) อย่างไร</label>
+										<textarea class="form-control" id="no8" name="no8" rows="6" required></textarea>
+									  </div>
+									  <div class="form-group">
+										<label for="exampleTextarea4">9. Scrum framework คือวิธีการทำงานที่ให้ทีมช่วยกันรุมทำงาน ประกอบไปด้วย 3 ตำแหน่งสำคัญอะไรบ้าง และแต่ละคนมีมีหน้าที่ทำอะไร</label>
+										<textarea class="form-control" id="no9" name="no9" rows="8" required></textarea>
+									  </div>
+									  <div class="form-group">
+										<label for="exampleTextarea4">10. ทำเลเงินในการวางตำแหน่งรูปภาพ จะอยู่ที่ใดของทำเลทอง</label>
+										<textarea class="form-control" id="no10" name="no10" rows="4" required></textarea>
+									  </div> -->
+									  <button type="submit" class="btn btn-gradient-primary mr-2" onclick="check()">Submit</button>
+									</form>
+								</div>
+							</div>
+						  </div>
+					  </div>
+					</div>
+				  </div>
+				  <!-- content-wrapper ends -->
+				  <!-- partial:../../partials/_footer.html -->
+				  <footer class="footer">
+					<div class="container">
+					  <div class="d-sm-flex justify-content-center justify-content-sm-between">
+						<span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+						<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">ติดต่อสอบถาม ผบร. โทร 5963, 5861 <i class="mdi mdi-heart text-danger"></i></span>
+					  </div>
+					</div>
+				  </footer>
+				  <!-- partial -->
+				</div>
+				<!-- main-panel ends -->
+			  </div>
+            
+		</div>
+		
+    </body>
+    <!-- plugins:js -->
+    <script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/static/assets/vendors/select2/select2.min.js"></script>
+    <script src="/static/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/static/assets/js/off-canvas.js"></script>
+    <script src="/static/assets/js/hoverable-collapse.js"></script>
+    <script src="/static/assets/js/misc.js"></script>
+    <script src="/static/assets/js/settings.js"></script>
+	<script src="/static/assets/js/todolist.js"></script>
+	<script src="/static/assets/js/widgets.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/static/assets/js/file-upload.js"></script>
+    <script src="/static/assets/js/typeahead.js"></script>
+    <script src="/static/assets/js/select2.js"></script>
+    <!-- End custom js for this page -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		function check() {
+			
+			var x =confirm("ยืนยันการส่งแบบทดสอบก่อนเรียน (Pre-Test)");
+				if (x)
+					return true;
+				else
+					return false;
+			
+			
+		};
+	</script>
+    

@@ -1,0 +1,224 @@
+<<<<<<< HEAD
+{% load static %}
+<html lang="en">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Onboarding Program</title>
+
+    <style>
+        @font-face {
+            font-family: 'THSarabun';
+            src: url("https://suaaa.herokuapp.com/media/documents/THSarabun.ttf");
+        }
+        
+        body {
+            font-family: 'THSarabun';
+            font-weight: 200;
+            font-size: 18px;
+        }
+    </style>
+    <!-- plugins:css -->
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/static/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.base.css">
+
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/static/assets/vendors/jquery-bar-rating/css-stars.css">
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/static/assets/css/demo_3/style.css">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="/static/assets/images/favicon.png" />
+
+</head>
+
+
+
+
+<body>
+    <div class="container-scroller">
+        {% include "menu.html" %}
+
+        <canvas id="myChart" width="1500" height="500"></canvas>
+        <script>
+            $(document).ready(function() {
+                var dataeva = ("{{data}}")
+                console.log(dataeva)
+                var data1 = JSON.parse(dataeva)
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['no1', 'no2', 'no3', 'no4', 'no5', 'no6', 'no7', 'no8', 'no9', 'total'],
+                        datasets: [{
+                            label: 'Evaluate score',
+                            backgroundColor: 'rgb(255, 99, 132)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            data: data1
+                        }]
+                    },
+
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax: 5
+                                }
+
+                            }]
+                        }
+                    }
+                });
+                console.log(dataeva)
+            });
+        </script>
+
+    </div>
+
+</body>
+
+{% block script %} {% endblock script %}
+<!-- plugins:js -->
+<script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
+
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="/static/assets/vendors/select2/select2.min.js"></script>
+<script src="/static/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+<script src="/static/assets/vendors/chart.js/chart.min.js"></script>
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="/static/assets/js/off-canvas.js"></script>
+<script src="/static/assets/js/hoverable-collapse.js"></script>
+<script src="/static/assets/js/misc.js"></script>
+<script src="/static/assets/js/settings.js"></script>
+<script src="/static/assets/js/todolist.js"></script>
+<script src="/static/assets/js/widgets.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page -->
+<script src="/static/assets/js/file-upload.js"></script>
+<script src="/static/assets/js/typeahead.js"></script>
+<script src="/static/assets/js/select2.js"></script>
+<script src="/static/assets/js/chart.js"></script>
+=======
+{% load static %}
+<html lang="en">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Onboarding Program</title>
+
+    <style>
+        @font-face {
+            font-family: 'THSarabun';
+            src: url("https://suaaa.herokuapp.com/media/documents/THSarabun.ttf");
+        }
+        
+        body {
+            font-family: 'THSarabun';
+            font-weight: 200;
+            font-size: 18px;
+        }
+    </style>
+    <!-- plugins:css -->
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/static/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.base.css">
+
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/static/assets/vendors/jquery-bar-rating/css-stars.css">
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/static/assets/css/demo_3/style.css">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="/static/assets/images/favicon.png" />
+
+</head>
+
+
+
+
+<body>
+    <div class="container-scroller">
+        {% include "menu.html" %}
+
+        <canvas id="myChart" width="1500" height="500"></canvas>
+        <script>
+            $(document).ready(function() {
+                var dataeva = ("{{data}}")
+                console.log(dataeva)
+                var data1 = JSON.parse(dataeva)
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['no1', 'no2', 'no3', 'no4', 'no5', 'no6', 'no7', 'no8', 'no9', 'total'],
+                        datasets: [{
+                            label: 'Evaluate score',
+                            backgroundColor: 'rgb(255, 99, 132)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            data: data1
+                        }]
+                    },
+
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax: 5
+                                }
+
+                            }]
+                        }
+                    }
+                });
+                console.log(dataeva)
+            });
+        </script>
+
+    </div>
+
+</body>
+
+{% block script %} {% endblock script %}
+<!-- plugins:js -->
+<script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
+
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="/static/assets/vendors/select2/select2.min.js"></script>
+<script src="/static/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+<script src="/static/assets/vendors/chart.js/chart.min.js"></script>
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="/static/assets/js/off-canvas.js"></script>
+<script src="/static/assets/js/hoverable-collapse.js"></script>
+<script src="/static/assets/js/misc.js"></script>
+<script src="/static/assets/js/settings.js"></script>
+<script src="/static/assets/js/todolist.js"></script>
+<script src="/static/assets/js/widgets.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page -->
+<script src="/static/assets/js/file-upload.js"></script>
+<script src="/static/assets/js/typeahead.js"></script>
+<script src="/static/assets/js/select2.js"></script>
+<script src="/static/assets/js/chart.js"></script>
+>>>>>>> 16a01bd241ef2e62339d77c9dfda62684da356eb
+<!-- End custom js for this page -->

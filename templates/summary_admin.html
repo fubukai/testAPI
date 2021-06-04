@@ -1,0 +1,174 @@
+{% load i18n static %}
+<!-- {{ request.session.emp_id }} -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="">
+        <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Onboarding Program</title>
+        <style>
+    
+            @font-face {
+                    font-family: 'THSarabun';
+                    src: url("https://suaaa.herokuapp.com/media/documents/THSarabun.ttf");
+            }
+            
+            body {
+                    font-family: 'THSarabun';
+                    font-weight: 200;
+                    font-size: 18px;
+            }
+        </style>
+         <link rel="stylesheet" href="/static/assets/vendors/mdi/css/materialdesignicons.min.css">
+         <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.base.css">
+         <link rel="stylesheet" href="/static/assets/css/demo_3/style.css">
+         <link rel="shortcut icon" href="/static/assets/images/favicon.png" />
+         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    </head>
+
+    <body >
+    <div class="container-scroller">
+     
+    <!-- ======================================
+    ******* Page Wrapper Area Start **********
+    ======================================= -->
+    <div class="container-fluid page-body-wrapper">
+        <div class="main-content">
+            <!-- <div class="content-wrapper"> -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body pb-0">
+                                <h4 class="card-title">หลักสูตร opop</h4>
+                                
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="bg-primary p-4 mb-30">
+                                            
+                                            <h6 class="card-title text-white">รายงานภาพรวมคนเข้าเรียน</h6>
+                                            <div id="profile-list-left" class="py-2">
+                                                <div class="card rounded mb-2">
+                                                    <div class="card-body p-3">
+                                                        <div class="row">
+                                                            <div class="col-1">#</div>
+                                                            <div class="col-3">ชื่อ-นามสกุล</div>
+                                                            <div class="col-2">ตำแหน่ง</div>
+                                                            <div class="col-1">ระดับ</div>
+                                                            <div class="col-4">หน่วยงาน</div>
+                                                            <div class="col-1">จำนวนหลักสูตร</div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% for i in total_record %}
+                                                <div class="card rounded mb-2">
+                                                    <div class="card-body p-3">
+                                                        <!-- <div class="media"> -->
+                                                            
+                                                            <div class="row">
+                                                                <div class="col-1">
+                                                                    {{ forloop.counter }}
+                                                                </div>
+                                                                <div class="col-2">
+                                                                    <div class="media-body">
+                                                                        <p class="mb-0 text-muted">{{ i.Staff__StaffName }}<br></p>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-2"> {{ i.Staff__StaffPosition }}</div>
+                                                                <div class="col-2"> {{ i.Staff__StaffLevelcode }}</div>
+                                                                <div class="col-4"> {{ i.Staff__StaffDepshort }}</div>
+                                                                <div class="col-1">{{ i.Staff_id__count }}</div>
+                                                            </div>
+                                                        <!-- </div> -->
+                                                    </div>
+                                                    <!-- <div class="progress h-6">
+                                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 10%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div> -->
+                                                </div>
+                                                {% endfor %}
+                                                
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-12">
+                                            <div class="card box-margin">
+                                                <div class="card-body">
+                                                    <div class="md-modal md-effect-1" id="modal-1">
+                                                        <div class="md-content">
+                                                            <h3 class="bg-info">Modal Dialog</h3>
+                                                            <div>
+                                                                <p>This is a modal window. You can do the following things with it:</p>
+                                                                <ul>
+                                                                    <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+                                                                    <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+                                                                    <li><strong>Close:</strong> click on the button below to close the modal.</li>
+                                                                </ul>
+                                                                <button class="btn btn-primary md-close">Close me!</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+
+                                
+
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- </div> -->
+            <footer class="footer">
+                <div class="container">
+                  <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">ผพผ. 5869 <i class="mdi mdi-heart text-danger"></i></span>
+                  </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+    <!-- plugins:js -->
+    <script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/static/assets/js/off-canvas.js"></script>
+    <script src="/static/assets/js/hoverable-collapse.js"></script>
+    <script src="/static/assets/js/misc.js"></script>
+    <script src="/static/assets/js/settings.js"></script>
+    <script src="/static/assets/js/todolist.js"></script>
+    <script src="/static/assets/js/file-upload.js"></script>
+    <!-- endinject -->
+    <script>
+		$(function() {
+			$("#submit").click(function() { 
+                var x =confirm("ยืนยันการส่งเอกสารให้ ผู้ประสานงานภาค");
+				if (x){
+                    var StaffCo_Email = document.getElementById("StaffCo_Email").value;
+                    alert("ส่งเมล์: "+ StaffCo_Email +"ให้ ผู้ประสานงานภาคแล้ว");
+                    return true;
+                    
+                }
+					
+				else
+					return false;
+            })
+        })
+    </script>
+
+    </body>
+
+</html>

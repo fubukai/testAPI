@@ -1,0 +1,895 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Onboarding Program</title>
+	<style>
+		@font-face {
+				   font-family: 'THSarabun';
+				   src: url("https://suaaa.herokuapp.com/media/documents/THSarabun.ttf");
+		   }
+		   
+		   body {
+				   font-family: 'THSarabun';
+				   font-weight: 200;
+				   font-size: 18px;
+		   }
+   	</style>
+    <!-- plugins:css -->
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/static/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/static/assets/vendors/jquery-bar-rating/css-stars.css">
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/static/assets/css/demo_3/style.css">
+    <!-- End Layout styles -->
+	<link rel="shortcut icon" href="/static/assets/images/favicon.png" />
+	
+  </head>
+
+    <body>
+        <div class="container-scroller">
+            
+			{% include "menu.html" %}
+
+
+			<div class="container-fluid page-body-wrapper">
+				<div class="main-panel">
+				  <div class="content-wrapper">
+					<div class="row">
+					  <div class="col-md-12">
+						<div class="col-12 grid-margin stretch-card">
+							<div class="card">
+							  	<div class="card-body">
+									<h4 class="card-title">การประเมินวิทยากรภายใน หลักสูตร : {{ Course_item.CourseName }}</h4>
+									<h6 class="card-subtitle">บรรยายโดย : </h6>
+										{% for x in Sub_Course_item %}
+											<label class="card-subtitle">{{ forloop.counter }}.</label>
+											<label class="card-subtitle">{{ x.ConstructorName }}</label>&nbsp;&nbsp;
+										{% endfor %}
+								
+									<input type="hidden" id="Course_total" name="Course_total" value="{{ Course_item.id }}"/>
+									{% if Course_item.id == 17 %}
+									<form class="forms-sample" method="post">
+										{% csrf_token %}
+										<div class="table-responsive">
+											<table class="table">
+												<thead>
+													<tr>
+														<th class="text-center" rowspan="2">หัวข้อประเมิน</th>
+														<th class="text-center" colspan="5">ระดับมาพึงพอใจ 5 = มากที่สุด, 1 = น้อยที่สุด </th>
+													</tr>
+													<tr>
+														<th>5</th>
+														<th>4</th>
+														<th>3</th>
+														<th>2</th>
+														<th>1</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td >1. ความเหมาะสมด้านรูปแบบและเนื้อหาการฝึกอบรม</td>
+													</tr>
+													<tr >
+														<td >1.1 ความเหมาะสมด้านรูปแบบและเนื้อหาการฝึกอบรม</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio1_1">
+																	<input type="radio" class="form-check-input" id="radio1_5" name="optradio1" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio1_2">
+																	<input type="radio" class="form-check-input" id="radio1_4" name="optradio1" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio1_3">
+																	<input type="radio" class="form-check-input" id="radio1_3" name="optradio1" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio1_4">
+																	<input type="radio" class="form-check-input" id="radio1_2" name="optradio1" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio1_5">
+																	<input type="radio" class="form-check-input" id="radio1_1" name="optradio1" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr >
+														<td >1.2 เนื้อหาที่เรียนมีความทันสมัย น่าสนใจ</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio2_1">
+																	<input type="radio" class="form-check-input" id="radio2_5" name="optradio2" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio2_2">
+																	<input type="radio" class="form-check-input" id="radio2_4" name="optradio2" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio2_3">
+																	<input type="radio" class="form-check-input" id="radio2_3" name="optradio2" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio2_4">
+																	<input type="radio" class="form-check-input" id="radio2_2" name="optradio2" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio2_5">
+																	<input type="radio" class="form-check-input" id="radio2_1" name="optradio2" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr >
+														<td >1.3 ระยะเวลาของแต่ละคลิปมีความเหมาะสม</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio3_1">
+																	<input type="radio" class="form-check-input" id="radio3_5" name="optradio3" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio3_2">
+																	<input type="radio" class="form-check-input" id="radio3_4" name="optradio3" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio3_3">
+																	<input type="radio" class="form-check-input" id="radio3_3" name="optradio3" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio3_4">
+																	<input type="radio" class="form-check-input" id="radio3_2" name="optradio3" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio3_5">
+																	<input type="radio" class="form-check-input" id="radio3_1" name="optradio3" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="6">2. ประโยชน์และความพึงพอใจ</td>
+													</tr>
+													<tr>
+														<td >2.1 ประโยชน์ที่ได้รับจากการฝึกอบรม</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio4_1">
+																	<input type="radio" class="form-check-input" id="radio4_5" name="optradio4" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio4_2">
+																	<input type="radio" class="form-check-input" id="radio4_4" name="optradio4" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio4_3">
+																	<input type="radio" class="form-check-input" id="radio4_3" name="optradio4" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio4_4">
+																	<input type="radio" class="form-check-input" id="radio4_2" name="optradio4" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio4_5">
+																	<input type="radio" class="form-check-input" id="radio4_1" name="optradio4" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td >2.2 การนำความรู้ที่ได้รับไปใช้ได้จริง</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio5_1">
+																	<input type="radio" class="form-check-input" id="radio5_5" name="optradio5" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio5_2">
+																	<input type="radio" class="form-check-input" id="radio5_4" name="optradio5" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio5_3">
+																	<input type="radio" class="form-check-input" id="radio5_3" name="optradio5" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio5_4">
+																	<input type="radio" class="form-check-input" id="radio5_2" name="optradio5" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio5_5">
+																	<input type="radio" class="form-check-input" id="radio5_1" name="optradio5" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td >2.3 ความพึงพอใจในภาพรวมของการฝึกอบรม</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio6_1">
+																	<input type="radio" class="form-check-input" id="radio6_5" name="optradio6" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio6_2">
+																	<input type="radio" class="form-check-input" id="radio6_4" name="optradio6" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio6_3">
+																	<input type="radio" class="form-check-input" id="radio6_3" name="optradio6" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio6_4">
+																	<input type="radio" class="form-check-input" id="radio6_2" name="optradio6" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio6_5">
+																	<input type="radio" class="form-check-input" id="radio6_1" name="optradio6" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="6">3. วิทยากร</td>
+													</tr>
+													<tr>
+														<td >3.1 ความรอบรู้ในหัวข้อที่บรรยาย</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio7_1">
+																	<input type="radio" class="form-check-input" id="radio7_5" name="optradio7" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio7_2">
+																	<input type="radio" class="form-check-input" id="radio7_4" name="optradio7" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio7_3">
+																	<input type="radio" class="form-check-input" id="radio7_3" name="optradio7" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio7_4">
+																	<input type="radio" class="form-check-input" id="radio7_2" name="optradio7" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio7_5">
+																	<input type="radio" class="form-check-input" id="radio7_1" name="optradio7" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td >3.2 ความสามารถในการถ่ายทอดเนื้อหา</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio8_5">
+																	<input type="radio" class="form-check-input" id="radio8_5" name="optradio8" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio8_4">
+																	<input type="radio" class="form-check-input" id="radio8_4" name="optradio8" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio8_3">
+																	<input type="radio" class="form-check-input" id="radio8_3" name="optradio8" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio8_2">
+																	<input type="radio" class="form-check-input" id="radio8_2" name="optradio8" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio8_1">
+																	<input type="radio" class="form-check-input" id="radio8_1" name="optradio8" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td >3.3 การใช้สื่อประกอบการบรรยาย</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio9_5">
+																	<input type="radio" class="form-check-input" id="radio9_5" name="optradio9" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio9_4">
+																	<input type="radio" class="form-check-input" id="radio9_4" name="optradio9" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio9_3">
+																	<input type="radio" class="form-check-input" id="radio9_3" name="optradio9" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio9_2">
+																	<input type="radio" class="form-check-input" id="radio9_2" name="optradio9" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio9_5">
+																	<input type="radio" class="form-check-input" id="radio9_1" name="optradio9" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td>4. หัวข้อความรู้ที่สามารถนำไปใช้</td>
+														<td colspan="5"><textarea cols="70" rows="5" id="Usability" name="Usability"></textarea></td>
+													</tr>
+													<tr>
+														<td>5. หัวข้อความรู้ที่ต้องการให้จัดฝึกอบรม</td>
+														<td colspan="5"><textarea cols="70" rows="5" id="Future_Subject" name="Future_Subject"></textarea></td>
+													</tr>
+													<tr>
+														<td>6. ข้อเสนอแนะ</td>
+														<td colspan="5"><textarea cols="70" rows="6" id="Suggestion" name="Suggestion"></textarea></td>
+													</tr>
+													<tr>
+														<td colspan="6" class="text-left">
+															<input type="submit" id="submit" class="btn btn-gradient-primary btn-rounded btn-fw" value="ส่งแบบประเมิน"/>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</form>
+
+									{% else %}
+									<form class="forms-sample" method="post">
+										{% csrf_token %}
+										<div class="table-responsive">
+											<table class="table">
+												<thead>
+													<tr>
+														<th class="text-center" rowspan="2">หัวข้อประเมิน</th>
+														<th class="text-center" colspan="5">ระดับมาพึงพอใจ 5 = มากที่สุด, 1 = น้อยที่สุด </th>
+													</tr>
+													<tr>
+														<th>5</th>
+														<th>4</th>
+														<th>3</th>
+														<th>2</th>
+														<th>1</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr >
+														<td>1. ความรู้ในหัวข้อที่บรรยาย</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio1_1">
+																	<input type="radio" class="form-check-input" id="radio1_5" name="optradio1" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio1_2">
+																	<input type="radio" class="form-check-input" id="radio1_4" name="optradio1" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio1_3">
+																	<input type="radio" class="form-check-input" id="radio1_3" name="optradio1" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio1_4">
+																	<input type="radio" class="form-check-input" id="radio1_2" name="optradio1" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio1_5">
+																	<input type="radio" class="form-check-input" id="radio1_1" name="optradio1" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td >2. ความสามารถในการถ่ายทอดเนื้อหา ชัดเจน เข้าใจง่าย มีการยกตัวอย่างประกอบ</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio2_1">
+																	<input type="radio" class="form-check-input" id="radio2_5" name="optradio2" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio2_2">
+																	<input type="radio" class="form-check-input" id="radio2_4" name="optradio2" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio2_3">
+																	<input type="radio" class="form-check-input" id="radio2_3" name="optradio2" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio2_4">
+																	<input type="radio" class="form-check-input" id="radio2_2" name="optradio2" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio2_5">
+																	<input type="radio" class="form-check-input" id="radio2_1" name="optradio2" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td >3. การจัดลำดับเนื้อหาวิชาเชื่อมโยงกัน เหมาะสม และเป็นปัจจุบัน</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio3_1">
+																	<input type="radio" class="form-check-input" id="radio3_5" name="optradio3" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio3_2">
+																	<input type="radio" class="form-check-input" id="radio3_4" name="optradio3" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio3_3">
+																	<input type="radio" class="form-check-input" id="radio3_3" name="optradio3" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio3_4">
+																	<input type="radio" class="form-check-input" id="radio3_2" name="optradio3" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio3_5">
+																	<input type="radio" class="form-check-input" id="radio3_1" name="optradio3" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td >4. การใช้สื่อประกอบการบรรยาย</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio4_1">
+																	<input type="radio" class="form-check-input" id="radio4_5" name="optradio4" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio4_2">
+																	<input type="radio" class="form-check-input" id="radio4_4" name="optradio4" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio4_3">
+																	<input type="radio" class="form-check-input" id="radio4_3" name="optradio4" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio4_4">
+																	<input type="radio" class="form-check-input" id="radio4_2" name="optradio4" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio4_5">
+																	<input type="radio" class="form-check-input" id="radio4_1" name="optradio4" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td >5. การใช้เวลาของวิทยากรมีความเหมาะสม</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio5_1">
+																	<input type="radio" class="form-check-input" id="radio5_5" name="optradio5" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio5_2">
+																	<input type="radio" class="form-check-input" id="radio5_4" name="optradio5" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio5_3">
+																	<input type="radio" class="form-check-input" id="radio5_3" name="optradio5" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio5_4">
+																	<input type="radio" class="form-check-input" id="radio5_2" name="optradio5" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio5_5">
+																	<input type="radio" class="form-check-input" id="radio5_1" name="optradio5" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td >6. หัวข้อในการบรรยายสามารถนำไปประยุกต์ใช้ในการทำงาน</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio6_1">
+																	<input type="radio" class="form-check-input" id="radio6_5" name="optradio6" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio6_2">
+																	<input type="radio" class="form-check-input" id="radio6_4" name="optradio6" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio6_3">
+																	<input type="radio" class="form-check-input" id="radio6_3" name="optradio6" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio6_4">
+																	<input type="radio" class="form-check-input" id="radio6_2" name="optradio6" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio6_5">
+																	<input type="radio" class="form-check-input" id="radio6_1" name="optradio6" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td >7. ภายหลังการอบรมมีความรู้ ความเข้าใจเพิ่มมากขึ้น</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio7_1">
+																	<input type="radio" class="form-check-input" id="radio7_5" name="optradio7" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio7_2">
+																	<input type="radio" class="form-check-input" id="radio7_4" name="optradio7" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio7_3">
+																	<input type="radio" class="form-check-input" id="radio7_3" name="optradio7" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio7_4">
+																	<input type="radio" class="form-check-input" id="radio7_2" name="optradio7" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio7_5">
+																	<input type="radio" class="form-check-input" id="radio7_1" name="optradio7" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td >8. ความชัดเจน ของภาพและเสียง ในการเรียนรู้แบบ Online</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio8_5">
+																	<input type="radio" class="form-check-input" id="radio8_5" name="optradio8" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio8_4">
+																	<input type="radio" class="form-check-input" id="radio8_4" name="optradio8" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio8_3">
+																	<input type="radio" class="form-check-input" id="radio8_3" name="optradio8" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio8_2">
+																	<input type="radio" class="form-check-input" id="radio8_2" name="optradio8" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio8_1">
+																	<input type="radio" class="form-check-input" id="radio8_1" name="optradio8" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td >9. ความพึงพอใจในการเรียนรู้แบบ Online</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio9_5">
+																	<input type="radio" class="form-check-input" id="radio9_5" name="optradio9" value="5" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio9_4">
+																	<input type="radio" class="form-check-input" id="radio9_4" name="optradio9" value="4" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio9_3">
+																	<input type="radio" class="form-check-input" id="radio9_3" name="optradio9" value="3" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio9_2">
+																	<input type="radio" class="form-check-input" id="radio9_2" name="optradio9" value="2" />&nbsp;
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="form-check form-check-primary">
+																<label  class="form-check-label" for="radio9_5">
+																	<input type="radio" class="form-check-input" id="radio9_1" name="optradio9" value="1" />&nbsp;
+																</label>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="6" class="text-left">
+															<input type="submit" id="submit" class="btn btn-gradient-primary btn-rounded btn-fw" value="ส่งแบบประเมิน"/>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											</div>
+									</form>
+
+									{% endif %}
+									
+									
+							  </div>	
+							</div>
+						  </div>
+					  </div>
+					</div>
+				  </div>
+				  <!-- content-wrapper ends -->
+				  <!-- partial:../../partials/_footer.html -->
+				  <footer class="footer">
+					<div class="container">
+					  <div class="d-sm-flex justify-content-center justify-content-sm-between">
+						<span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+						<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">ติดต่อสอบถาม ผบร. โทร 5963, 5861 <i class="mdi mdi-heart text-danger"></i></span>
+					  </div>
+					</div>
+				  </footer>
+				  <!-- partial -->
+				</div>
+				<!-- main-panel ends -->
+			  </div>
+            
+		</div>
+		
+    </body>
+    <!-- plugins:js -->
+    <script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/static/assets/vendors/select2/select2.min.js"></script>
+    <script src="/static/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/static/assets/js/off-canvas.js"></script>
+    <script src="/static/assets/js/hoverable-collapse.js"></script>
+    <script src="/static/assets/js/misc.js"></script>
+    <script src="/static/assets/js/settings.js"></script>
+	<script src="/static/assets/js/todolist.js"></script>
+	<script src="/static/assets/js/widgets.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/static/assets/js/file-upload.js"></script>
+    <script src="/static/assets/js/typeahead.js"></script>
+    <script src="/static/assets/js/select2.js"></script>
+    <!-- End custom js for this page -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(function() {
+			
+			$("#submit").click(function() {  
+			for (i = 1; i <= 7; i++) {
+					if($('input[type=radio][name=optradio'+i+']:checked').length == 0)
+					{
+						alert("ใจเย็นๆ ข้อ "+i+" ยังไม่ได้ตอบนะ");
+						document.getElementById("radio"+i+"_1").focus();
+						return false;
+						
+					}
+			}
+
+			var x =confirm("ยืนยันการส่งแบบประเมิน");
+				if (x)
+					return true;
+				else
+					return false;
+			
+			
+			});
+		});
+	</script>
+    
