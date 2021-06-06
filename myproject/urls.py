@@ -14,9 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from django.conf.urls import url
 from elearning import views
+from rest_framework import routers
+from myproject.API import views as views2
+
+router = routers.DefaultRouter()
+#router.register(r'data', views.request_mylearningViewSet , base_name='Sub_course&course')
+router.register(r'users', views2.UserViewSet)
+router.register(r'groups', views2.GroupViewSet)
 
 urlpatterns = [
     url(r'^$', views.login, name='login'),
@@ -43,5 +50,8 @@ urlpatterns = [
     path('export/xls/<int:input_course>/', views.export_users_xls, name='export_users_xls'),
     url('summary_admin/',views.summary,name='summary'),
     url('summary_healthy/',views.summary_healthy,name='summary_healthy'),
-
+    path('request_Sub_CourseViewSet/', views.request_Sub_CourseViewSet.as_view()),
+    path('request_CourseViewSet/', views.request_CourseViewSet.as_view()),
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

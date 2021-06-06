@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
-from django.http import Http404
+from django.views import View
+from django.http import Http404,JsonResponse
 import requests, xmltodict
 from .models import Staff, Check, Course, Sub_Course, Course_Pretest, Staff_Score, Staff_Vdolog , Feedback, Evaluate_t, Closed_class, Hub_test, Bu_test
 import string
@@ -9,7 +10,6 @@ from django.db.models import Avg
 from datetime import datetime
 from itertools import zip_longest
 import re
-from django.db.models import Count, Sum,Q,F
 from django.views.generic import UpdateView
 from django.views.generic import TemplateView
 from django.template.response import TemplateResponse
@@ -19,8 +19,46 @@ from django.db.models import Count, Sum,Q,F
 import itertools
 import xlwt
 from datetime import date
-from django.http import HttpResponse
 from django.contrib.auth.models import User
+from rest_framework import viewsets, status
+from rest_framework import permissions
+from rest_framework.response import Response
+from .serializers import request_Sub_Course
+from .serializers import request_Course
+from drf_multiple_model.views import ObjectMultipleModelAPIView
+
+class request_Sub_CourseViewSet(View):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    #.values('Link_course__CourseName','Link_course__id','Link_course__CourseBy')
+    def get(self, request):
+        querys = Sub_Course.objects.all()
+        querys_serializer = request_Sub_Course(querys, many=True)
+        ''' if querys_serializer.is_valid():
+            querys_serializer.save()
+            return Response(request_Sub_Course.data, status=status.HTTP_201_CREATED)'''
+        return JsonResponse(querys_serializer.data ,safe=False)
+    #queryset = Sub_Course.objects.values('Link_course__CourseName','Link_course__CourseStatus','Link_course__id','Link_course__Cover_img','Link_course__CourseBy','Link_course__Course_Pass_Score').filter(Link_course__CourseStatus = 'ON')
+    #serializer_class = request_Sub_Course
+    '''querylist = [
+        {'queryset': Sub_Course.objects.values('Link_course__CourseName','Link_course__CourseStatus','Link_course__id','Link_course__Cover_img','Link_course__CourseBy','Link_course__Course_Pass_Score').all(), 'serializer_class': request_Sub_Course},
+        {'queryset': Course.objects.all(), 'serializer_class': request_Course},
+    ]
+    permission_classes = [permissions.IsAuthenticated]'''
+
+class request_CourseViewSet(View):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    #.values('Link_course__CourseName','Link_course__id','Link_course__CourseBy')
+    def get(self, request):
+        querys = Course.objects.all()
+        querys_serializer = request_Course(querys, many=True)
+        ''' if querys_serializer.is_valid():
+            querys_serializer.save()
+            return Response(request_Sub_Course.data, status=status.HTTP_201_CREATED)'''
+        return JsonResponse(querys_serializer.data ,safe=False)
 
 
 def login(request):

@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'elearning',
+    'myproject.API',
+    'rest_framework',
+    'drf_multiple_model',
 ]
 
 MIDDLEWARE = [
@@ -80,12 +83,15 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd63ee9lv5dkfoj',
-        'USER': 'czyprwdzvgvjjj',
-        'PASSWORD': '8707fe653d8d71f6965de92d275a71833e5450f4ac9fe41963812d1962df972d',
-        'HOST': 'ec2-34-193-112-164.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        
+        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #'NAME': 'd63ee9lv5dkfoj',
+        #'USER': 'czyprwdzvgvjjj',
+        #'PASSWORD': '8707fe653d8d71f6965de92d275a71833e5450f4ac9fe41963812d1962df972d',
+        #'HOST': 'ec2-34-193-112-164.compute-1.amazonaws.com',
+        #'PORT': '5432',
     }
 }
 
@@ -124,6 +130,10 @@ USE_L10N = True
 USE_TZ = True
 
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
